@@ -1,0 +1,53 @@
+package com.kuznetsov.c42D.Game;
+
+import com.kuznetsov.c42D.util.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public interface Engine {
+
+    public abstract void update();
+
+    public abstract void render(graphics g);
+
+    public abstract void renderJava2D(Graphics g);
+    
+    public abstract void destroy();
+
+    public abstract void keyTyped(KeyEvent e);
+
+    public abstract void keyPressed(KeyEvent e);
+
+    public abstract void keyReleased(KeyEvent e);
+
+    public abstract void mouseClicked(MouseEvent e);
+
+    public abstract void mousePressed(MouseEvent e);
+
+    public abstract void mouseReleased(MouseEvent e);
+
+    public abstract void mouseEntered(MouseEvent e);
+
+    public abstract void mouseExited(MouseEvent e);
+
+    public abstract void mouseDragged(MouseEvent e);
+
+    public abstract void mouseMoved(MouseEvent e);
+
+    public abstract void mouseWheelMoved(MouseWheelEvent e);
+
+    public abstract void windowOpened(WindowEvent e);
+
+    public abstract void windowClosing(WindowEvent e);
+
+    public abstract void windowClosed(WindowEvent e);
+
+    public abstract void windowIconified(WindowEvent e);
+
+    public abstract void windowDeiconified(WindowEvent e);
+
+    public abstract void windowActivated(WindowEvent e);
+
+    public abstract void windowDeactivated(WindowEvent e);
+    
+}
