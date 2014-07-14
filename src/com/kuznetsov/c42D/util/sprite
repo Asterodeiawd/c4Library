@@ -1,0 +1,30 @@
+package com.kuznetsov.c42D.util;
+
+
+public class sprite {
+
+    private int x, y;
+    public int width, hight;
+    public int[] pixels;
+
+    private image image;
+
+    public sprite(int width, int hight, int x, int y, image image) {
+
+        this.width = width;
+        this.hight = hight;
+        pixels = new int[width * hight];
+        this.x = x * width;
+        this.y = y * hight;
+        this.image = image;
+        load();
+    }
+
+    private void load() {
+        for (int y = 0; y < hight; y++) {
+            for (int x = 0; x < width; x++) {
+                pixels[x + y * width] = image.pixels[(x + this.x) + (y + this.y) * image.width];
+            }
+        }
+    }
+}
