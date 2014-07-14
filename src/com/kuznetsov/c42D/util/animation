@@ -1,0 +1,13 @@
+package com.kuznetsov.c42D.util;
+
+public class animation {
+
+    public void updateAndRender(graphics g) {
+
+    }
+
+    public boolean getRunning() {
+        return false;
+    }
+
+}
