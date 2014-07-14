@@ -1,0 +1,39 @@
+package com.kuznetsov.c42D.util;
+
+import java.io.IOException;
+import javax.sound.sampled.*;
+
+public class sound {
+
+    public String path;
+    private Clip clip;
+    alert a;
+    public sound(String path) {
+        this.path = path;
+        AudioInputStream audioIn = null;
+        try{
+        audioIn = AudioSystem.getAudioInputStream(sound.class.getResource(this.path));
+        clip = null;
+        clip = AudioSystem.getClip();
+        clip.open(audioIn);
+        }catch(Exception e){
+            a = new alert("","there was an errer loading a sound resource",e);
+        }
+    }
+
+    public void reset() {
+        clip.flush();
+    }
+
+    public void start() {
+        clip.start();
+    }
+
+    public void loop(int i) {
+        clip.loop(i);
+    }
+
+    public void stop() {
+        clip.stop();
+    }
+}
