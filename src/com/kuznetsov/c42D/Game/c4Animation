@@ -1,33 +1,32 @@
 package com.kuznetsov.c42D.Game;
 
-import com.kuznetsov.c42D.util.animation;
-import com.kuznetsov.c42D.util.graphics;
-import com.kuznetsov.c42D.util.image;
+import com.kuznetsov.c42D.graphics.graphics;
+import com.kuznetsov.c42D.graphics.image;
+import com.kuznetsov.c42D.util.windowUtil.element;
 
-public class c4Animation extends animation {
+
+public class c4Animation extends element {
 
     private int frame = 0;
-    private final image i = new image("/demo/intro.png");
+    private final image i = new image("/intro.png");
     private boolean running = true;
 
     @Override
-    public void updateAndRender(graphics g) {
-        System.out.println();
+    public void update(Game g) {
+        frame++;
+        if (frame == 300) {
+            g.getPanel().remove(this);
+        }
+    }
+
+    @Override
+    public void render(graphics g) {
         if (frame < 100) {
             g.drawImage(frame - 100, g.hight / 2 - 25, i);
         } else if (frame > 200) {
             g.drawImage(-(frame - 200), g.hight / 2 - 25, i);
-        }
-
-        frame++;
-        if (frame == 300) {
-            running = false;
+        }else{
+            g.drawImage(0, g.hight/2-25, i);
         }
     }
-
-    @Override
-    public boolean getRunning() {
-        return running;
-    }
-
 }
